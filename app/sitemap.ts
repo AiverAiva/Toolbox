@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { locales } from "@/lib/i18n"
 import { getEnabledTools } from "@/lib/tools-config"
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://toolbox.example.com"
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://google.com"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const tools = getEnabledTools()
