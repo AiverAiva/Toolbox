@@ -82,6 +82,10 @@ export const translations = {
     indexFeature2Desc: "All processing happens on your device",
     indexFeature3: "Cross Platform",
     indexFeature3Desc: "Works on mobile, tablet, and desktop",
+    // Theme
+    themeLight: "Light",
+    themeDark: "Dark",
+    themeSystem: "System",
   },
   "zh-TW": {
     // Site
@@ -150,6 +154,10 @@ export const translations = {
     indexFeature2Desc: "所有處理都在您的裝置上進行",
     indexFeature3: "跨平台",
     indexFeature3Desc: "適用於手機、平板和桌機",
+    // Theme
+    themeLight: "淺色",
+    themeDark: "深色",
+    themeSystem: "系統",
   },
 } as const
 

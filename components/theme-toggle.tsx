@@ -4,9 +4,18 @@ import { Moon, Sun, Monitor } from "lucide-react"
 import { useTheme } from "@/providers/theme-provider"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
+import { getTranslation, isValidLocale, defaultLocale, type Locale } from "@/lib/i18n"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname() || ""
+  const parts = pathname.split("/")
+  const locale: Locale = (parts[1] && isValidLocale(parts[1]) ? (parts[1] as Locale) : defaultLocale)
+
+  const lightLabel = getTranslation(locale, "themeLight")
+  const darkLabel = getTranslation(locale, "themeDark")
+  const systemLabel = getTranslation(locale, "themeSystem")
 
   return (
     <DropdownMenu>
@@ -20,15 +29,15 @@ export function ThemeToggle() {
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
           <Sun className="mr-2 h-4 w-4" />
-          <span>Light</span>
+          <span>{lightLabel}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           <Moon className="mr-2 h-4 w-4" />
-          <span>Dark</span>
+          <span>{darkLabel}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
           <Monitor className="mr-2 h-4 w-4" />
-          <span>System</span>
+          <span>{systemLabel}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
