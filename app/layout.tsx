@@ -2,6 +2,7 @@ import type React from "react"
 import type { Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
+import GoogleAnalytics from "@/components/google-analytics"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -19,5 +20,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return children
+  return (
+    <html>
+      <GoogleAnalytics />
+      {children}
+    </html>
+  )
 }
